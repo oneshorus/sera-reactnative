@@ -114,17 +114,16 @@ android {
         release {
             storeFile file('wawansetiawan.keystore')
             storePassword 'qwerty'
-            keyAlias 'your_key_alias'
+            keyAlias 'wawansetiawan'
             keyPassword 'qwerty'
         }
-        /*
+        
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
-        */
     }
     buildTypes {
         debug {

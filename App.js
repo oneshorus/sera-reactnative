@@ -20,14 +20,14 @@ function App() {
             component={HomeScreen}
             options={({navigation, route}) => ({
               headerTitle: 'SERAMovie',
-              // headerRight: () => <Loop navigation={navigation} />,
+              headerRight: () => <Loop navigation={navigation} />,
             })}
           />
           <Stack.Screen
             name="Details"
             component={DetailsScreen}
             options={({navigation, route}) => ({
-              // headerRight: () => <Loop navigation={navigation} />,
+              headerRight: () => <Loop navigation={navigation} />,
             })}
           />
           <Stack.Screen
@@ -40,7 +40,7 @@ function App() {
             component={SubScreen}
             options={({navigation, route}) => ({
               title: route.params?.title || 'Movie',
-              // headerRight: () => <Loop navigation={navigation} />,
+              headerRight: () => <Loop navigation={navigation} />,
             })}
           />
         </Stack.Navigator>

@@ -1,6 +1,7 @@
 import {
-  FETCH_MOVIES_LATEST,
-  FETCH_MOVIES_LATEST_FULFILLED,
+  FETCH_MOVIES_SEARCH,
+  FETCH_MOVIES_SEARCH_FULFILLED,
+  FETCH_MOVIES_SEARCH_CANCELLED,
   FETCH_MOVIES_NOWPLAYING,
   FETCH_MOVIES_NOWPLAYING_FULFILLED,
   FETCH_MOVIES_POPULAR,
@@ -12,13 +13,16 @@ import {
 } from '../STATIC';
 
 // action creators
-export const fetchMoviesLatest = () => ({
-  type: FETCH_MOVIES_LATEST,
-  payload: 'latest',
-});
-export const fetchMoviesLatestFulfilled = payload => ({
-  type: FETCH_MOVIES_LATEST_FULFILLED,
+export const fetchMoviesSearch = payload => ({
+  type: FETCH_MOVIES_SEARCH,
   payload,
+});
+export const fetchMoviesSearchFulfilled = payload => ({
+  type: FETCH_MOVIES_SEARCH_FULFILLED,
+  payload,
+});
+export const fetchMoviesSearchCancelLed = () => ({
+  type: FETCH_MOVIES_SEARCH_CANCELLED,
 });
 
 export const fetchMoviesNowPlaying = () => ({

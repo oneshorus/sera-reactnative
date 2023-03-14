@@ -6,8 +6,8 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import {ActivityIndicator} from 'react-native-paper';
 import {IMG_HOST} from '../STATIC';
+import ImageError from './ImageError';
 
 function MovieItem({navigation, movie}) {
   const gap = 6;
@@ -16,13 +16,13 @@ function MovieItem({navigation, movie}) {
   const imgWidth = screenOneThirdWidth > 200 ? 200 : screenOneThirdWidth; // maxWidth 200
   const imgHeight = Math.floor((imgWidth * 16) / 9);
 
-  const [imageError, setImageError] = useState(false);
+  const [loadImageError, setloadImageError] = useState(false);
 
   return (
     <View style={{width: imgWidth, height: imgHeight}}>
       <TouchableOpacity
         onPress={() => navigation?.navigate('Details', {movie})}>
-        {!imageError ? (
+        {!loadImageError ? (
           <Image
             source={{uri: IMG_HOST + movie?.poster_path}}
             style={{
@@ -30,20 +30,16 @@ function MovieItem({navigation, movie}) {
               width: imgWidth - gap,
               height: imgHeight - gap,
             }}
-            onError={() => setImageError(true)}
+            onError={() => setloadImageError(true)}
           />
         ) : (
-          <View
+          <ImageError
             style={{
-              ...styles.movieImg,
+              margin: 5,
               width: imgWidth - gap,
               height: imgHeight - gap,
-              ...styles.containerImg,
-            }}>
-            <View style={styles.containerSpinner}>
-              <ActivityIndicator animating={true} />
-            </View>
-          </View>
+            }}
+          />
         )}
       </TouchableOpacity>
     </View>
